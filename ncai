@@ -1,0 +1,435 @@
+-- phpMyAdmin SQL Dump
+-- version 4.8.5
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Jan 08, 2020 at 07:08 PM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.3.3
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `ncai`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `advisory_board`
+--
+
+CREATE TABLE `advisory_board` (
+  `id` int(11) NOT NULL,
+  `advisory_board_memeber_name` varchar(200) NOT NULL,
+  `advisory_board_memeber_designation` varchar(200) NOT NULL,
+  `advisory_board_memeber_linkedin` varchar(200) NOT NULL,
+  `time_stamp` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `advisory_board`
+--
+
+INSERT INTO `advisory_board` (`id`, `advisory_board_memeber_name`, `advisory_board_memeber_designation`, `advisory_board_memeber_linkedin`, `time_stamp`) VALUES
+(5, 'Arshad Aziz, PhD', 'Director (Embedded Systems Research Lab)', 'https://www.linkedin.com/in/arshad-aziz-phd-2b0a99172', '2019-10-29 19:56:43'),
+(6, 'Danish Zahoor', 'Entrepreneur', 'https://www.linkedin.com/in/danish-zahoor-b2727216', '2019-10-29 19:58:42'),
+(7, 'Momin Kazi', 'Assistant Professor, Aga Khan University', 'https://www.linkedin.com/in/momin-kazi-17461a2b', '2019-10-29 20:00:37'),
+(8, 'Adeel Razi', 'Senior Research Fellow, Turner Institute for Brain and Mental Health at Monash University', 'https://www.linkedin.com/in/adeelrazi', '2019-10-29 20:01:48'),
+(9, 'Tariq Jadoon', 'Associate Professor at LUMS', 'https://www.linkedin.com/in/tariq-jadoon-2026a6b', '2019-11-02 10:32:41');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contact_us`
+--
+
+CREATE TABLE `contact_us` (
+  `id` int(11) NOT NULL,
+  `contact_address` varchar(200) NOT NULL,
+  `contact_phone` varchar(200) NOT NULL,
+  `contact_email` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `contact_us`
+--
+
+INSERT INTO `contact_us` (`id`, `contact_address`, `contact_phone`, `contact_email`) VALUES
+(1, 'Computer and Information Systems Department, NED University of Engineering and Technology, University Road, 75270, Karachi.', '+92 310 8080828', 'kamranwaseem@neduet.edu.pk');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `internal`
+--
+
+CREATE TABLE `internal` (
+  `id` int(10) NOT NULL,
+  `file_name` varchar(100) NOT NULL,
+  `time_stamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `newsletter`
+--
+
+CREATE TABLE `newsletter` (
+  `id` int(11) NOT NULL,
+  `email` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `newsletter`
+--
+
+INSERT INTO `newsletter` (`id`, `email`) VALUES
+(1, 'itshamzakhalidhk@gmail.com'),
+(2, 'itshamzakhalidhk@gmail.com');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `news_and_events`
+--
+
+CREATE TABLE `news_and_events` (
+  `id` int(50) NOT NULL,
+  `title` varchar(100) NOT NULL,
+  `type` int(1) NOT NULL,
+  `time_stamp` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `products`
+--
+
+CREATE TABLE `products` (
+  `id` int(11) NOT NULL,
+  `product_name` varchar(100) NOT NULL,
+  `total_images` int(2) NOT NULL,
+  `description` varchar(5000) NOT NULL,
+  `time_stamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `products`
+--
+
+INSERT INTO `products` (`id`, `product_name`, `total_images`, `description`, `time_stamp`) VALUES
+(32, 'Robo Chotu', 3, 'The clinically relevant and assistive robot, Robo-Chotu operates semi-autonomously under the supervision of the psychotherapist. Robo-Chotu is a non-anthropomorphic social robot which enhances autism therapy by attracting children and teaching them new life skills. The robot assists the therapist in teaching social and communication skills to the autistic children. The therapy aims to improve childrenâ€™s likelihood of integration into society in the future. The core innovative technology integrated to Robo-Chotu is its unique AI cognitive model which interprets sensory data (facial expressions, speech output etc.) and will use perceptions and cues to assess the child behaviour. In addition to its unique cognitive model, it has a competitive advantage of being low-cost due to homegrown technology on an Android platform. It offers diagnostic and treatment support to autistic children relieving the burden from the current labour intensive therapeutic interventions. ', '2019-10-17 07:07:04'),
+(33, 'Instrux', 3, 'INSTRUX is an intelligent cloud based energy monitoring solution developed by Instrumentation Centre at NED University of Engineering and Technology. It provides a unifying approach to view the energy flow within an organization and thanks to its powerful data analytics; the user can visualize energy consumption patterns in insightful ways realizing potential sources of energy conservation. In addition, it provides an insight into the expenditure incurred over a time interval and thereby quantify the energy cost for any operation, service or product. Also, the bill prediction module powered by state of the art machine learning algorithms along with the highly customizable alert management system proactively works together to keep the energy bill always in control! In short, INSTRUX is the only tool you ever going to need to keep your energy consumption at the optimum. ', '2019-10-17 07:07:49'),
+(44, 'test', 4, 'description', '2019-12-16 18:28:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `projects`
+--
+
+CREATE TABLE `projects` (
+  `id` int(11) NOT NULL,
+  `project_name` varchar(100) NOT NULL,
+  `total_images` int(2) NOT NULL,
+  `description` varchar(300) NOT NULL,
+  `time_stamp` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `projects`
+--
+
+INSERT INTO `projects` (`id`, `project_name`, `total_images`, `description`, `time_stamp`) VALUES
+(5, 'Hand Movement Controller', 1, 'Extraction of EMG feature for controlling hand movement in patients with motor disability', '2019-10-17 12:59:46'),
+(6, 'Source Dynamics', 1, 'Real-time modelling and 3D visualization of source dynamics and effective connectivity using Source Information Flow Toolbox (SIFT) .', '2019-10-17 13:00:46'),
+(7, 'Epilepsy Doctor', 1, 'Detecting seizures spikes in EEG data through artificial intelligence and machine learning technology to improve the diagnostic and therapeutic efficacy of epilepsy. ', '2019-10-17 13:02:34'),
+(8, 'PLV Analyzer', 1, 'Analyzing Phased Locked Value (PLV) of Spinal Cord Injured Patients (SCI) to identify the difference between functional connectivity of SCI Patients with Pain, SCI patients without pain and able-bodied.', '2019-10-17 13:03:51'),
+(10, 'Neurofeedback System', 3, 'Development of a versatile user-friendly open source neurofeedback system for monitoring and controlling neurofeedback training and experiments.', '2019-10-17 13:07:49'),
+(14, 'test', 0, 'this is description', '2019-12-17 00:01:46');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `research_and_publications`
+--
+
+CREATE TABLE `research_and_publications` (
+  `id` int(11) NOT NULL,
+  `publication_title` varchar(100) NOT NULL,
+  `publication_author` varchar(1000) NOT NULL,
+  `publication_abstract` varchar(50000) NOT NULL,
+  `link` varchar(200) NOT NULL,
+  `time_stamp` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `students`
+--
+
+CREATE TABLE `students` (
+  `id` int(11) NOT NULL,
+  `student_name` varchar(200) NOT NULL,
+  `course_name` varchar(200) NOT NULL,
+  `batch_name` varchar(200) NOT NULL,
+  `time_stamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `students`
+--
+
+INSERT INTO `students` (`id`, `student_name`, `course_name`, `batch_name`, `time_stamp`) VALUES
+(2, 'omama', 'AI', '2014', '2020-01-08 18:07:24');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `team`
+--
+
+CREATE TABLE `team` (
+  `id` int(11) NOT NULL,
+  `team_memeber_name` varchar(200) NOT NULL,
+  `team_memeber_designation` varchar(200) NOT NULL,
+  `team_memeber_email` varchar(200) NOT NULL,
+  `team_memeber_contact` varchar(200) NOT NULL,
+  `team_memeber_description` varchar(5000) NOT NULL,
+  `team_memeber_linkedin` varchar(200) NOT NULL,
+  `time_stamp` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `team`
+--
+
+INSERT INTO `team` (`id`, `team_memeber_name`, `team_memeber_designation`, `team_memeber_email`, `team_memeber_contact`, `team_memeber_description`, `team_memeber_linkedin`, `time_stamp`) VALUES
+(1, 'Prof. Dr. Saad Ahmed Qazi', 'Principal Investigator', 'saadqazi@neduet.edu.pk', '+92-21-99261261', 'Saad Ahmed Qazi received his B.E. in Electrical Engineering in 2001 from NED University, Karachi. He completed his M.S. from Lancaster University, U.K. in Digital Signal Processing Applications in 2002. He did his Ph.D. from Brunel University, U.K. in 2006. Saad Ahmed Qazi is currently serving at NED University as Professor and Dean, Faculty of Electrical and Computer Engineering. He has several international publications and research projects. He is PI of Neurocomputation Lab under National Centre of Artificial Intelligence. He is also a Co-PI in National Incubation Center Karachi. His research interests include Digital Signal Processing, Joint Time Frequency Analysis, Intelligent Algorithms, Data Analytics and Decision Support System', 'none', '2019-11-02 22:14:16'),
+(2, 'Dr. Hashim Raza Khan', 'Co-Principal Investigator', 'hashim@neduet.edu.pk', '+92-21-99261261', 'Dr. Hashim Raza Khan brings in years of experience in electronics design. He has worked on instrumentation and calibration systems at Agilent Technologies, Germany (now Keysight) as well as at Infineon Technologies, Germany on designing integrated circuits for mobile phones. For the last three years, he is also heading a successful commercial venture within a public sector organization offering repair, calibration, training and engineering services for local industry. The idea was conceived and implemented by him in fully bootstrap mode.', 'none', '2019-11-02 22:22:28'),
+(3, 'Dr. Abul Hasan', 'Co-Principal Investigator', 'abulhasan@neduet.edu.pk', '+92-21-99261261', 'Dr. Hasan completed B.Engg and M.Engg in Electronic from NED University in 2008 and 2010 respectively. He did his PhD in Biomedical Engineering from the University of Glasgow in 2014. He is experienced in working with team of medical doctors and engineers. He is well familiar with protocols that involve experiments on patients. He is currently involved on various projects related to Neuromodulation, EEG signal processing, and design of non-pharmacological techniques for the treatment of various neurological disorders. In general, his research areas are related to cognitive enhancement (improving peak performance) and pain management using non-invasive technologies (complementary therapy) such as neuroimaging, neuromodulation, peripheral and central stimulation, neuro-rehabilitation, and signal processing.', 'none', '2019-11-02 22:32:45'),
+(4, 'Kamran Waseem', 'Team Lead', 'kamranwaseem@neduet.edu.pk', '+92-310-8080828', 'xyz', 'none', '2019-11-02 22:53:52'),
+(5, 'Abdul Basit', 'Research Associate', '', '', 'Abdul Basit received his bachelorâ€™s degree in Electronic Engineering in 2014 from Sir Syed University of Engineering and his master\'s in Electronic Engineering from NED University of Engineering & Technology in 2017. His current research interest includes embedded systems, hardware and PCB designing, and interfacing modules.', '', '2019-11-02 23:08:43'),
+(6, 'Misbahuddin Abdullah', 'Research Associate', '', '', 'Misbahuddin Abdullah completed his bachelorâ€™s degree in Electronics from NED University of Engineering & Technology in 2005. He is a Data Science enthusiast with 12+years of experience working as a consultant for Fortune 500 companies such as Nokia, Ericsson and Telenor across the globe. Currently pursuing Micromasters in Data Science and Statistics from MITx. Also: pursuing Data Science nanodegree from Udacity. He is interested in Algorithmic trading, Data Science and automation for Telecom and Finance.', '', '2019-11-02 23:26:10');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `trainings`
+--
+
+CREATE TABLE `trainings` (
+  `id` int(10) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `details_link` varchar(100) NOT NULL,
+  `register_link` varchar(100) NOT NULL,
+  `description` varchar(300) NOT NULL,
+  `starting_date` varchar(11) NOT NULL,
+  `ending_date` varchar(11) NOT NULL,
+  `time_stamp` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `trainings`
+--
+
+INSERT INTO `trainings` (`id`, `name`, `details_link`, `register_link`, `description`, `starting_date`, `ending_date`, `time_stamp`) VALUES
+(1, 'test', 'this is link', 'link2 ', 'this is text', '2019-12-25', '2019-12-31', '2019-12-11 18:50:59');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `firstName` varchar(50) NOT NULL,
+  `lastName` varchar(50) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `phone` varchar(20) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `user_type` int(1) NOT NULL,
+  `newsletter_subscription` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `firstName`, `lastName`, `email`, `phone`, `password`, `user_type`, `newsletter_subscription`) VALUES
+(30, 'Hamza', 'Khalid', 'itshamzakhalidhk@gmail.com', '03330388371', '38f95d245052d37029bb1f504bb53ef8947165fa7f3339b19aea01c7b837dd90', 0, 0),
+(31, 'Saad', 'Khalid', 'sk@sk.com', '12345678', '32b56ed53348a8587f30c90e5c6406df95d3b8ab1130b1da62bcf492a8ed8a63', 1, 1),
+(32, 'Hamza', 'Khalid', 'admin@kk.com', '123456', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 0, 0),
+(39, '8', '8', '8', '8', '2c624232cdd221771294dfbb310aca000a0df6ac8b66b696d90ef06fdefb64a3', 1, 0),
+(40, 'fgfd', 'fgfdg', 'fgfg', 'dgdgd', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 1, 0);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `advisory_board`
+--
+ALTER TABLE `advisory_board`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `contact_us`
+--
+ALTER TABLE `contact_us`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `internal`
+--
+ALTER TABLE `internal`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `newsletter`
+--
+ALTER TABLE `newsletter`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `news_and_events`
+--
+ALTER TABLE `news_and_events`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `products`
+--
+ALTER TABLE `products`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `projects`
+--
+ALTER TABLE `projects`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `research_and_publications`
+--
+ALTER TABLE `research_and_publications`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `students`
+--
+ALTER TABLE `students`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `team`
+--
+ALTER TABLE `team`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `trainings`
+--
+ALTER TABLE `trainings`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `advisory_board`
+--
+ALTER TABLE `advisory_board`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `contact_us`
+--
+ALTER TABLE `contact_us`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `internal`
+--
+ALTER TABLE `internal`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `newsletter`
+--
+ALTER TABLE `newsletter`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `news_and_events`
+--
+ALTER TABLE `news_and_events`
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `products`
+--
+ALTER TABLE `products`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+
+--
+-- AUTO_INCREMENT for table `projects`
+--
+ALTER TABLE `projects`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT for table `research_and_publications`
+--
+ALTER TABLE `research_and_publications`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `students`
+--
+ALTER TABLE `students`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `team`
+--
+ALTER TABLE `team`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `trainings`
+--
+ALTER TABLE `trainings`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
